@@ -1,86 +1,162 @@
+<div align="center">
+
+<img src="setup/assets/logo512.png" alt="Icewolf logo" width="150">
+
 # Project Icewolf
 
-A private, fast and debloated browser with its own frost-wolf look, built on the **LibreWolf** engine and packaged as one standalone `setup.exe`.
+**A private, fast and debloated browser with a frost-blue look.**<br>
+Built on the LibreWolf engine. No telemetry, no AI, no accounts, no clutter.
 
-## Download
-Get the newest version from the **Releases** page: the installer (`IcewolfSetup-<version>.exe`) or the portable version (`IcewolfPortable-<version>.zip`).
+![Platform: Windows](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-1f6feb)
+![Engine: LibreWolf](https://img.shields.io/badge/engine-LibreWolf-3d8bfd)
+![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-0b3d91)
+![Telemetry: none](https://img.shields.io/badge/telemetry-none-2ea043)
 
-## Build it yourself
-1. Extract the zip.
-2. Double-click **Build-Icewolf-Setup.bat**. It needs no extra software.
-3. The `dist` folder opens with two files:
+**[⬇ Download the latest version](../../releases/latest)**
 
-| File | What it is |
+<sub>Want a video downloader built in? Check out the <a href="../../../project-icewolf-getem"><b>Getem Edition</b></a>.</sub>
+
+</div>
+
+---
+
+## ❄ Why Icewolf?
+
+Most browsers send usage data home, push accounts and AI features, and fill the start page with news and sponsored tiles. Icewolf takes the privacy-focused **LibreWolf** browser and strips it down even further:
+
+| | |
 |---|---|
-| `IcewolfSetup-<version>.exe` | Installer |
-| `IcewolfPortable-<version>.zip` | Portable |
+| 🔒 **Zero telemetry** | Built out of the engine by LibreWolf and locked off a second time by Icewolf. |
+| 🧹 **Debloated** | No AI, no Mozilla account or Sync, no password manager, no translation, no Pocket, no promos. |
+| 🛡 **Ad & tracker blocking** | uBlock Origin built in, strict tracking protection, HTTPS-only, encrypted DNS. |
+| 🔍 **DuckDuckGo** | Default search, straight from the address bar. |
+| 🧊 **Empty start page** | Just the Icewolf logo. No shortcuts, sponsors, news or ads. |
+| 🌙 **Dark mode** | One click in the main menu. |
+| 🔥 **Forget button** | A flame in the toolbar wipes your recent browsing data. |
+| 💼 **Portable version** | Runs from any folder or USB stick, no installation needed. |
+| 🔄 **Automatic updates** | New LibreWolf security updates are checked, verified and installed automatically. |
 
-If something fails, send `build-log.txt`.
+---
 
-The build downloads the newest signed LibreWolf Windows build (portable version) from LibreWolf's official servers and **stops unless**:
-- its SHA256 matches LibreWolf's published checksum,
-- no file has a broken or tampered signature, and
-- `librewolf.exe`, `xul.dll` and every `.exe` are signed by LibreWolf's publisher (OSSign / Scheibling Consulting AB). A few helper libraries that LibreWolf ships unsigned are protected by the SHA256 checksum.
+## ⬇ Download & install
 
-The setup checks every signature **again** on each PC before installing.
+Go to **[Releases](../../releases/latest)** and pick one:
 
-## Portable version
-The build also creates **`IcewolfPortable-<version>.zip`**. Extract it anywhere (also on a USB stick) and start **`Icewolf.exe`**:
-- **Nothing to install:** no administrator rights, everything (engine, profile, settings) stays inside the folder.
-- **Same Icewolf:** logo, theme, debloat, DuckDuckGo, empty start page, uBlock Origin.
-- **Updates:** after you close the browser, it checks for a new engine at most every 12 hours. Checksum and signatures are verified, just like the installed version.
-- **The only trace on the PC:** one per-user registry value, so Windows shows the Icewolf logo on the taskbar.
+| File | For |
+|---|---|
+| `IcewolfSetup-<version>.exe` | **Installer**: installs Icewolf with a Start menu entry and automatic updates. |
+| `IcewolfPortable-<version>.zip` | **Portable**: extract anywhere and start `Icewolf.exe`. Nothing is installed. |
 
-## Updates
-The setup installs the **Icewolf Updater**, a scheduled task that runs 3 minutes after login and every 4 hours:
-- It checks LibreWolf's official release feed and downloads a newer engine.
-- It verifies the checksum and all signatures before swapping in the engine, and re-applies the Icewolf settings.
-- It only updates while Icewolf is closed. Results go to `C:\Program Files\Icewolf\update-log.txt`.
-- It never brings back LibreWolf shortcuts or logos.
+> **"Windows protected your PC"?** The setup isn't code-signed (a certificate costs money), so Windows warns about it. Click **More info → Run anyway**. Each file has a `.sha256` checksum so you can check that your download wasn't altered.
 
-## What Icewolf removes
+**Import your bookmarks** from Chrome, Edge, Brave, Opera or Vivaldi: *Settings → General → Import browser data*.
+
+---
+
+## 🎬 Looking for a video downloader? Get the Getem Edition
+
+**[Project Icewolf – Getem Edition](../../../project-icewolf-getem)** is the same Icewolf browser with **Getem** built in, a video search and download tool.
+
+| | |
+|---|---|
+| <img src="https://img.shields.io/badge/G-e3242b?style=flat" height="20" alt="G"> **One-click button** | On a video page (YouTube, TikTok, …), click the red **G** in the toolbar and the video goes straight into Getem's download queue. |
+| 📑 **Getem in a tab** | Search and manage your downloads inside an Icewolf tab, no extra window needed. |
+| 💾 **Same choices** | Installer or portable version, with all the privacy and debloat features of this repository. |
+| 🐍 **Requirement** | Python 3.10+ (Getem sets up its download components on first start). |
+
+This repository stays the **plain browser**, without any download tool. Pick whichever fits you:
+
+| | Project Icewolf | Getem Edition |
+|---|:---:|:---:|
+| Private, debloated browser | ✅ | ✅ |
+| uBlock Origin, DuckDuckGo, empty start page | ✅ | ✅ |
+| Installer & portable version | ✅ | ✅ |
+| Built-in video downloader (Getem) | – | ✅ |
+| Needs Python | – | only for Getem |
+
+**[➜ Go to the Getem Edition](../../../project-icewolf-getem)**
+
+---
+
+## 🧹 What's removed
+
 | Area | Status |
 |---|---|
-| Telemetry | Built out of the engine by LibreWolf, plus locked off by Icewolf (Glean, DAP, studies, crash reports, region lookup, attribution) |
-| Mozilla account / Sync | Removed: disabled by policy, locked, all buttons and settings hidden |
-| Password manager & autofill | Removed: disabled by policy, locked, hidden, old saved data deleted |
-| AI | Removed: AI engine, chatbot, link previews, smart tab groups, PDF alt-text AI, AI history search, Google Lens |
-| Start page & new tab | Completely empty, just the Icewolf logo. No search box, shortcuts, sponsors, news or ads. Search runs through the address bar with **DuckDuckGo** |
-| Translation, "More tools", Help/About, default-browser prompt | Removed and hidden |
-| Other bloat | Autostart at Windows login, Firefox View, Pocket, screenshots, shopping checker, Reader View, promos, jump lists, quick actions, push service, notification popups, profile switcher, backup tool |
-| Branding | The browser calls itself **Icewolf** everywhere: window title, About, Settings, prompts, and Windows dialogs such as the location permission. Icewolf runs as its own `icewolf.exe`, a copy of the verified LibreWolf program with the Icewolf logo embedded, so the window, taskbar, Alt+Tab and Task Manager show Icewolf. Every logo image inside the engine (new tab, About, private window, icons) is replaced with the Icewolf logo, and the logo also appears in the installer and in the Windows Apps list. Mozilla, Firefox and LibreWolf links and sections are hidden in Settings |
+| Telemetry | Removed by LibreWolf and locked off by Icewolf (Glean, studies, crash reports, region lookup, attribution) |
+| Mozilla account / Sync | Removed: disabled, locked and hidden |
+| Password manager & autofill | Removed: disabled, locked and hidden |
+| AI | Removed: chatbot, link previews, smart tab groups, AI history search, Google Lens |
+| Start page & new tab | Empty except for the Icewolf logo |
+| Translation, "More tools", default-browser prompt | Removed and hidden |
+| Other bloat | Firefox View, Pocket, screenshots, shopping checker, Reader View, promos, push notifications, autostart |
+| Branding | Icewolf everywhere: window, taskbar, About, Settings and Windows prompts |
 
-Locks live in `%USERPROFILE%\.librewolf\librewolf.overrides.cfg` (LibreWolf's official override file) and in policies, so engine updates don't undo them.
+All settings are **locked**, so updates can't bring anything back.
 
-## Import bookmarks from another browser
-Chrome, Edge, Brave, Opera, Opera GX, Vivaldi, or a bookmarks HTML file:
-- **Settings → General → Import browser data → Import data**, or
-- the **"Import bookmarks…"** button on the empty bookmarks toolbar (shown on new tabs), or
-- **Ctrl+Shift+O** (Library) → *Import and Backup*.
+---
 
-Passwords can't be imported, because the password manager is removed. Import them into your password manager instead.
+## 🛡 Privacy & security
 
-## Privacy & security
-- **Fingerprinting:** LibreWolf's strict "resist fingerprinting" is **off**, because it breaks dark mode and time zones. Firefox's fingerprinting protection is **on** instead.
-- **Protection:** uBlock Origin (bundled by LibreWolf), with its malware and phishing lists. Strict tracking protection, HTTPS-only mode, encrypted DNS (Quad9) and no WebRTC IP leaks.
-- **Hardening:** TLS 1.2+, strict certificate pinning, local certificate revocation checks (no OCSP), punycode shown, no JavaScript in PDFs, add-ons injected by other programs blocked.
-- **The only connections left:** engine updates (librewolf.dev / dl.librewolf.net), uBlock filter lists, security blocklists, tracking-protection lists, and encrypted DNS. None of them sends browsing or usage data.
+- **Blocking:** uBlock Origin (with malware and phishing lists) plus strict tracking protection.
+- **Connections:** HTTPS-only mode, encrypted DNS (Quad9), no WebRTC IP leaks, TLS 1.2+.
+- **Hardening:** strict certificate pinning, no JavaScript in PDFs, add-ons injected by other programs are blocked.
+- **Fingerprinting:** Firefox's fingerprinting protection is on. LibreWolf's stricter "resist fingerprinting" mode is off, because it breaks dark mode and time zones.
+- **Verified engine:** every build and every update checks LibreWolf's official checksum and digital signatures. If anything doesn't match, it stops.
+- **The only connections left:** engine updates, uBlock filter lists, security blocklists and encrypted DNS. None of them sends browsing or usage data.
 
-## Troubleshooting branding
-If a LibreWolf name or logo still shows up somewhere, open **`branding-log.txt`** in `C:\Program Files\Icewolf` (installed version). It records which branding step worked and which didn't, so send that file.
+---
 
+## 💡 Good to know
 
-## Good to know (LibreWolf defaults that are kept)
-- **Logged out after closing:** cookies and history are deleted when the browser closes. To stay logged in on sites, go to *Settings → Privacy & Security* and untick deleting cookies on close.
-- **WebGL is off** (privacy). A few 3D sites and games need it: set `webgl.disabled` to `false` in `user.js`.
-- **DRM is off.** Netflix, Disney+ and Spotify need it: *Settings → General → "Play DRM-controlled content"*.
-- **Existing LibreWolf install:** if you also use regular LibreWolf, it reads the same override file, so it gets Icewolf's settings too.
-- **SmartScreen:** for the unsigned setup, click *More info → Run anyway*.
-- **Pin to taskbar:** Icewolf doesn't pop up a pin prompt (the engine's prompt would use the engine's built-in name). To pin it, open the Start menu, right-click **Icewolf**, and choose **Pin to taskbar**. If you pinned Icewolf earlier, unpin it first. If the taskbar shows the wrong icon right after installing, restart Windows once (Windows caches taskbar icons).
-- **Screen readers:** set `accessibility.force_disabled` to `0` in `user.js`.
+- **Logged out after closing?** Cookies are deleted when Icewolf closes (a LibreWolf default). To stay logged in: *Settings → Privacy & Security* → untick deleting cookies on close.
+- **Netflix / Spotify don't play?** DRM is off by default: *Settings → General → Play DRM-controlled content*.
+- **A 3D site or game doesn't load?** WebGL is off for privacy. Set `webgl.disabled` to `false` in `user.js`.
+- **Pin to taskbar:** open the Start menu, right-click **Icewolf**, choose **Pin to taskbar**.
 
-## Credits & licenses
-- **Project Icewolf** is licensed under the **Mozilla Public License 2.0** (see `LICENSE`).
-- Browser engine: [LibreWolf](https://librewolf.net), based on Mozilla Firefox, licensed under the MPL 2.0. The release files contain LibreWolf's unmodified, signed program files (Icewolf adds a renamed copy with its own icon). LibreWolf's source code (including the Firefox code it is built from): <https://codeberg.org/librewolf>.
-- Ad blocker: uBlock Origin (GPLv3), bundled by LibreWolf.
-- Icewolf is an independent project, not affiliated with LibreWolf or Mozilla. Firefox is a trademark of the Mozilla Foundation.
+---
+
+## 🔧 Build it yourself
+
+No extra software needed, only Windows' built-in tools:
+
+1. Download this repository (**Code → Download ZIP**) and extract it.
+2. Double-click **`Build-Icewolf-Setup.bat`**.
+3. The `dist` folder opens with the installer and the portable version.
+
+The build downloads the newest signed LibreWolf release from LibreWolf's official servers and **stops unless** the checksum matches and every signature is valid. The installer checks the signatures again on each PC. If something fails, `build-log.txt` explains why.
+
+GitHub also builds Icewolf automatically every week and for every version tag (`v1.0`, `v1.1`, …), see [`.github/workflows`](.github/workflows).
+
+<details>
+<summary>Project layout</summary>
+
+| Path | Contents |
+|---|---|
+| `build.ps1`, `Build-Icewolf-Setup.bat` | Build script and one-click starter |
+| `setup/` | Installer, portable launcher and updater (C#) |
+| `icewolf/config/` | Browser settings: `user.js`, policies, locked prefs, theme (`userChrome.css`, `userContent.css`) |
+| `icewolf/branding/`, `setup/assets/` | Logo and artwork |
+
+</details>
+
+---
+
+## 📜 License & credits
+
+- **Project Icewolf** is licensed under the **[Mozilla Public License 2.0](LICENSE)**.
+- **Browser engine:** [LibreWolf](https://librewolf.net), based on Mozilla Firefox (MPL 2.0). The release files contain LibreWolf's signed program files. Source code: <https://codeberg.org/librewolf>.
+- **Ad blocker:** uBlock Origin (GPLv3), bundled by LibreWolf.
+
+Icewolf is an independent project and not affiliated with LibreWolf or Mozilla. Firefox is a trademark of the Mozilla Foundation.
+
+---
+
+<div align="center">
+
+## ☕ Support the project
+
+If you like Icewolf and want to support its development, you can buy me a coffee:
+
+<a href='https://ko-fi.com/H0K72BCG8V' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+</div>
