@@ -1,0 +1,238 @@
+/* =====================================================================
+   Icewolf - Frost theme (blue)
+   Loaded from <profile>/chrome/userChrome.css
+   Only changes colours. It does not touch page content or security UI.
+   ===================================================================== */
+
+:root {
+  --iw-deep:    #07162d;  /* window / tab strip           */
+  --iw-night:   #0c2447;  /* toolbar                      */
+  --iw-ice:     #13355f;  /* selected tab, fields         */
+  --iw-frost:   #5fb4ff;  /* accent                       */
+  --iw-glow:    #00d5ff;  /* focus / highlights           */
+  --iw-snow:    #e6f4ff;  /* text                         */
+
+  --lwt-accent-color: var(--iw-deep) !important;
+  --lwt-accent-color-inactive: #061226 !important;
+  --lwt-text-color: var(--iw-snow) !important;
+  --toolbox-bgcolor: var(--iw-deep) !important;
+  --toolbox-textcolor: var(--iw-snow) !important;
+
+  --toolbar-bgcolor: var(--iw-night) !important;
+  --toolbar-color: var(--iw-snow) !important;
+  --toolbar-field-background-color: var(--iw-ice) !important;
+  --toolbar-field-focus-background-color: #0f2c52 !important;
+  --toolbar-field-color: var(--iw-snow) !important;
+  --toolbar-field-focus-color: var(--iw-snow) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-focus-border-color: var(--iw-frost) !important;
+
+  --tab-selected-bgcolor: var(--iw-ice) !important;
+  --tab-selected-textcolor: #ffffff !important;
+  --tab-hover-background-color: rgba(95, 180, 255, 0.14) !important;
+  --tab-line-color: var(--iw-glow) !important;
+
+  --arrowpanel-background: var(--iw-night) !important;
+  --arrowpanel-color: var(--iw-snow) !important;
+  --arrowpanel-border-color: rgba(95, 180, 255, 0.35) !important;
+
+  --sidebar-background-color: var(--iw-deep) !important;
+  --sidebar-text-color: var(--iw-snow) !important;
+
+  --focus-outline-color: var(--iw-glow) !important;
+  --button-primary-bgcolor: #2a7fd6 !important;
+  --button-primary-hover-bgcolor: #3a92ea !important;
+  --button-primary-active-bgcolor: #1f6bbb !important;
+  --button-primary-color: #ffffff !important;
+
+  --urlbar-box-bgcolor: var(--iw-ice) !important;
+  --urlbar-box-hover-bgcolor: #1a4277 !important;
+  --urlbar-box-focus-bgcolor: #1a4277 !important;
+  --urlbarView-highlight-background: #1f5fa8 !important;
+  --urlbarView-highlight-color: #ffffff !important;
+}
+
+#navigator-toolbox {
+  background: linear-gradient(180deg, #0a1f3e 0%, var(--iw-deep) 100%) !important;
+  border-bottom: 1px solid rgba(95, 180, 255, 0.25) !important;
+}
+
+#nav-bar,
+#PersonalToolbar {
+  background-color: var(--iw-night) !important;
+}
+
+/* Selected tab: frost glow along the top edge */
+.tabbrowser-tab[selected] .tab-background {
+  background: var(--iw-ice) !important;
+  box-shadow: inset 0 2px 0 var(--iw-glow), 0 0 8px rgba(0, 213, 255, 0.25) !important;
+}
+
+/* Address bar focus glow */
+#urlbar[focused] > #urlbar-background {
+  box-shadow: 0 0 0 1px var(--iw-frost), 0 0 10px rgba(95, 180, 255, 0.45) !important;
+}
+
+/* Page loading throbber and progress in blue */
+#tabbrowser-tabs .tab-throbber[busy]::before {
+  fill: var(--iw-glow) !important;
+}
+
+/* =====================================================================
+   Removed features: hide every remaining menu entry, button and
+   right-click item for Mozilla account, passwords, autofill, AI,
+   translation and other removed features.
+   ===================================================================== */
+/* Mozilla account / Sync / send tab */
+#fxa-toolbar-menu-button,
+#appMenu-fxa-status2, #appMenu-fxa-separator, #appMenu-fxa-label2,
+#PanelUI-fxa, #PanelUI-remotetabs, #appMenu-sync-button,
+#sync-setup, #sync-status, #sync-tabs-menuitem, #sync-enable, #sync-syncnowitem,
+#context-sendpagetodevice, #context-sendlinktodevice, #context-sendimage,
+#context-sep-sendpagetodevice, #context-sep-sendlinktodevice,
+#context_sendTabToDevice, #context_sendTabToDevice_separator,
+#pageAction-panel-sendToDevice, #menu_profileManagement,
+
+/* Passwords / autofill */
+#appMenu-passwords-button, #menu_openLogins, #passwords-menuitem,
+#password-notification-icon, #login-fill-separator,
+#fill-login, #fill-login-generated-password, #use-relay-mask, #manage-saved-logins,
+#context-autofill-addresses, #context-autofill-creditcards,
+
+/* AI chatbot, AI link preview, AI tab grouping */
+#context-ask-chat, #context-sep-ask-chat, #context-previewlink,
+#menu_genaiChatSidebar, #viewGenaiChatSidebar, #sidebar-switcher-genai-chat,
+#genai-chatbot-button, #tab-context-smart-group, #tab-group-suggestions-button,
+
+/* Translation */
+#translations-button, #appMenu-translate-button, #context-translate-selection,
+#context-translate-selection-separator, #full-page-translations-panel,
+
+/* Other removed features */
+#firefox-view-button, #screenshot-button, #context-take-screenshot,
+#context-sep-screenshots, #appMenu-screenshot-button, #reader-mode-button,
+#shopping-sidebar-button, #reportBrokenSite, #help_reportBrokenSite,
+#appMenu-report-broken-site-button, #menu_openFirefoxView,
+#appMenu-more-from-mozilla-button, #appMenu-whatsnew-button {
+  display: none !important;
+}
+
+/* =====================================================================
+   Dark frost quick-menu, right-click menus and panels
+   ===================================================================== */
+:root {
+  color-scheme: dark !important;
+  --panel-background: var(--iw-night) !important;
+  --panel-color: var(--iw-snow) !important;
+  --panel-border-color: rgba(95, 180, 255, 0.35) !important;
+  --panel-separator-color: rgba(95, 180, 255, 0.18) !important;
+  --panel-item-hover-bgcolor: rgba(95, 180, 255, 0.16) !important;
+  --panel-item-active-bgcolor: rgba(95, 180, 255, 0.26) !important;
+  --panel-banner-item-background-color: var(--iw-ice) !important;
+  --menu-background-color: var(--iw-night) !important;
+  --menu-color: var(--iw-snow) !important;
+  --menu-border-color: rgba(95, 180, 255, 0.35) !important;
+  --menuitem-hover-background-color: rgba(95, 180, 255, 0.16) !important;
+  --menuitem-disabled-hover-background-color: transparent !important;
+  --menu-disabled-color: #6f93bc !important;
+  --menu-icon-opacity: 0.85 !important;
+}
+menupopup, panel, panelview, .panel-subview-body, #appMenu-popup, #appMenu-mainView {
+  color-scheme: dark !important;
+  --panel-background: var(--iw-night) !important;
+  --panel-color: var(--iw-snow) !important;
+  color: var(--iw-snow) !important;
+}
+menupopup > menuitem:hover, menupopup > menu:hover, menupopup > menu[_moz-menuactive],
+menupopup > menuitem[_moz-menuactive] {
+  background-color: rgba(95, 180, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+/* =====================================================================
+   Hamburger menu: remove "More tools", Help/About and every
+   remaining Mozilla / Firefox entry
+   ===================================================================== */
+#appMenu-more-button2, #appMenu-more-button,
+#appMenu-help-button2, #appMenu-help-button, #PanelUI-helpView,
+#helpMenu, #aboutName, #appMenu_aboutName, #menu_openHelp,
+#appMenu_menu_openHelp, #feedbackPage, #appMenu_feedbackPage, #helpSafeMode,
+#troubleShooting, #help_reportSiteIssue, #menu_HelpPopup_reportPhishingtoolmenu,
+#appMenu-fxa-status2, #appMenu-fxa-separator,
+#appMenu-extensions-themes-button ~ toolbarseparator:empty:last-child {
+  display: none !important;
+}
+
+/* =====================================================================
+   Hamburger menu (and all other popup panels): forced dark frost.
+   Styles the panel surfaces directly, so it works with every theme,
+   including the default "System - auto" theme on a light Windows.
+   ===================================================================== */
+panel, menupopup,
+#appMenu-popup, #widget-overflow, #customizationui-widget-panel,
+#unified-extensions-panel, #downloadsPanel, #identity-popup, #permission-popup,
+#protections-popup, #editBookmarkPanel, #notification-popup {
+  color-scheme: dark !important;
+  --panel-background: #0c2447 !important;
+  --panel-color: #e8f5ff !important;
+  --panel-border-color: rgba(95, 180, 255, 0.35) !important;
+  --panel-separator-color: rgba(95, 180, 255, 0.18) !important;
+  --arrowpanel-background: #0c2447 !important;
+  --arrowpanel-color: #e8f5ff !important;
+  --arrowpanel-border-color: rgba(95, 180, 255, 0.35) !important;
+  --arrowpanel-dimmed: rgba(95, 180, 255, 0.10) !important;
+  --arrowpanel-dimmed-further: rgba(95, 180, 255, 0.18) !important;
+  --button-hover-bgcolor: rgba(95, 180, 255, 0.16) !important;
+  --button-active-bgcolor: rgba(95, 180, 255, 0.26) !important;
+}
+
+panel::part(content), menupopup::part(content),
+.panel-arrowcontent, .panel-viewcontainer, .panel-viewstack,
+panelview, .panel-mainview, .panel-subview-body, .panel-header, .panel-footer,
+#appMenu-mainView, #appMenu-protonMainView, #PanelUI-panic-view {
+  background-color: #0c2447 !important;
+  color: #e8f5ff !important;
+  border-color: rgba(95, 180, 255, 0.35) !important;
+}
+
+.subviewbutton, .toolbaritem-combined-buttons > .subviewbutton,
+#appMenu-zoom-controls, #appMenu-zoom-controls label,
+.panel-header > h1, .panel-subview-body label, panelview label,
+menupopup menu, menupopup menuitem {
+  color: #e8f5ff !important;
+}
+.subviewbutton:not([disabled]):hover, .subviewbutton[open],
+menupopup menu:hover, menupopup menuitem:hover,
+menupopup menu[_moz-menuactive], menupopup menuitem[_moz-menuactive] {
+  background-color: rgba(95, 180, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+.subviewbutton:not([disabled]):hover:active { background-color: rgba(95, 180, 255, 0.26) !important; }
+.subviewbutton[disabled], menupopup menuitem[disabled] { color: #6f93bc !important; }
+.subviewbutton > .toolbarbutton-icon, .subviewbutton image { fill: #9cc3e8 !important; }
+
+toolbarseparator, menuseparator, .panel-subview-body > toolbarseparator {
+  border-color: rgba(95, 180, 255, 0.18) !important;
+  appearance: none !important;
+}
+
+/* Zoom row buttons inside the menu */
+#appMenu-zoomReduce-button2, #appMenu-zoomEnlarge-button2, #appMenu-zoomReset-button2,
+#appMenu-fullscreen-button2 {
+  color: #e8f5ff !important;
+  fill: #e8f5ff !important;
+}
+
+/* =====================================================================
+   "Forget" button (delete browsing data): small flame icon
+   ===================================================================== */
+#panic-button, #panic-button-success-icon, #PanelUI-panic-view .panel-header {
+  list-style-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZiIgeDE9IjAiIHkxPSIxIiB4Mj0iMCIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjNkMDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU1IiBzdG9wLWNvbG9yPSIjZmY4YTAwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZDIzZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjAiIHkxPSIxIiB4Mj0iMCIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmIwMDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmM2IwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2YpIiBkPSJNOCAuNmMuNCAyLjItLjYgMy41LTEuNyA0LjhDNS4yIDYuNyA0IDggNCAxMC4yIDQgMTIuOSA1LjggMTUgOCAxNXM0LTIuMSA0LTQuOGMwLTEuNy0uOC0zLTEuNi00LS4xIDEuMS0uNiAxLjktMS40IDIuMy4zLTIuOS0uNS01LjQtMS03Ljl6Ii8+CiAgPHBhdGggZmlsbD0idXJsKCNjKSIgZD0iTTggOC4zYy4yIDEtLjMgMS42LS44IDIuMi0uNS41LS45IDEuMS0uOSAxLjlDNi4zIDEzLjYgNy4xIDE0LjQgOCAxNC40czEuNy0uOCAxLjctMmMwLS45LS40LTEuNS0uOC0yLS4xLjUtLjQuOS0uOCAxIC4yLTEuMSAwLTIuMi0uMS0zLjF6Ii8+Cjwvc3ZnPgo=") !important;
+}
+#panic-button .toolbarbutton-icon {
+  fill: initial !important;
+  -moz-context-properties: none !important;
+}
+
+
+

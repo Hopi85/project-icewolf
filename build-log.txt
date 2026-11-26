@@ -1,0 +1,48 @@
+﻿**********************
+nStart der Windows PowerShell-Aufzeichnung
+Startzeit: 20261126185744
+Benutzername: DESKTOP-IH4JMO6\Hopi
+RunAs-Benutzer: DESKTOP-IH4JMO6\Hopi
+Konfigurationsname: 
+Computer: DESKTOP-IH4JMO6 (Microsoft Windows NT 10.0.26200.0)
+Hostanwendung: powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Hopi\Downloads\Project-Icewolf\build.ps1
+Prozess-ID: 24424
+PSVersion: 5.1.26100.9711
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9711
+BuildVersion: 10.0.26100.9711
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[build] Windows 10.0.26200.0, PowerShell 5.1.26100.9711
+[build] Using built-in compiler: C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+[build] Asking LibreWolf for the newest release...
+[build] LibreWolf version 161.0-1
+[build] Downloading librewolf-161.0-1-windows-x86_64-portable.zip ...
+[build] Checksum OK
+[build] Verifying digital signatures of every program file...
+[build] Main program files signed by: CN=OSSign (Scheibling Consulting AB), O=OSSign (Scheibling Consulting AB), L=Uppsala, C=SE
+[build] No Getem files in this project - building Icewolf without Getem.
+[build] Compiling uninstaller / updater...
+[build] Compiling setup.exe (Icewolf)...
+[build] Compiling portable launcher...
+[build] Assembling Icewolf Portable...
+[build] Branding the portable engine (program icon, program name, interface texts)...
+[branding] 2026-11-26 18:57:56  ---- branding C:\Users\Hopi\Downloads\Project-Icewolf\build\portable\Icewolf\engine
+[branding] 2026-11-26 18:57:56  icewolf.exe: OK (15 icon groups, 1 version blocks replaced)
+[branding] 2026-11-26 18:57:59  browser\omni.ja: 23690 entries, 315 texts and 15 images rebranded
+[branding] 2026-11-26 18:58:02  engine\omni.ja: 18518 entries, 0 texts and 0 images rebranded
+[branding] 2026-11-26 18:58:02  Browser scripts: core (no Getem in this version)
+[branding] 2026-11-26 18:58:02  Browser scripts: OK (icewolf.cfg)
+[build] Packing Icewolf Portable...
+
+  Done - in the "dist" folder:
+    IcewolfSetup-161.0-1.exe            installer
+    IcewolfPortable-161.0-1.zip         portable
+
+**********************
+Ende der Windows PowerShell-Aufzeichnung
+Endzeit: 20261126185818
+**********************
