@@ -17,11 +17,13 @@ try {
           ShellService.doesAppNeedStartMenuPin = async () => false;
           ShellService.pinCurrentAppToTaskbarAsync = async () => { };
           ShellService.pinToStartMenu = async () => false;
-          return;
+          return url;
         } catch (e) { }
       }
+      return null;
     }
-    Svc.obs.addObserver({ observe() { try { neutralizePinning(); } catch (e) { } } }, "final-ui-startup");
+    let pinResult = null;   // logged once the profile folder is available (see below)
+    Svc.obs.addObserver({ observe() { try { pinResult = neutralizePinning(); } catch (e) { } } }, "final-ui-startup");
 
     // ---- DuckDuckGo: make sure it exists and is the default (once - you can change it later).
     // Added here instead of by policy: a policy engine with the same name as a built-in one can
@@ -85,6 +87,7 @@ try {
     }
 
     async function ensureDuckDuckGo(win) {
+      slog("pin-to-taskbar prompts: " + (pinResult ? "switched off (" + pinResult + ")" : "NOT switched off - engine module not found"));
       try { await diagnoseSearch(win); } catch (e) { slog("diagnose: " + e); }
       const search = findSearchService(win);
       if (!search) { slog("ERROR search service not found"); return; }
@@ -125,9 +128,40 @@ try {
       Svc.prefs.setBoolPref(done, true);
       slog("default engine: " + (search.defaultEngine && search.defaultEngine.name));
     }
+    // ---- Only ONE "delete browsing data" button: the browser's own (white) one stays.
+    // Earlier Icewolf versions added a second, colored flame ("panic-button") - it is removed once.
+    // If you add it again yourself (Customize toolbar), it stays. Logged to icewolf-search-log.txt.
+    function removeExtraFlame(win, final) {
+      try {
+        let CUI = null;
+        for (const url of ["resource:///modules/CustomizableUI.sys.mjs",
+                           "moz-src:///browser/components/customizableui/CustomizableUI.sys.mjs"]) {
+          try { CUI = ChromeUtils.importESModule(url).CustomizableUI; if (CUI) break; } catch (e) { }
+        }
+        if (!CUI) { slog("toolbar check: CustomizableUI not found"); return; }
+        const done = "icewolf.toolbar.extraFlameRemoved.1";
+        if (!Svc.prefs.getBoolPref(done, false)) {
+          if (CUI.getPlacementOfWidget("panic-button")) {
+            CUI.removeWidgetFromArea("panic-button");
+            slog("toolbar: removed Icewolf's extra flame button (the browser's own one stays)");
+          }
+          Svc.prefs.setBoolPref(done, true);
+        }
+        if (final) {
+          try { slog("toolbar: " + CUI.getWidgetIdsInArea(CUI.AREA_NAVBAR).join(", ")); } catch (e) { }
+        }
+      } catch (e) { slog("toolbar check: " + e); }
+    }
+
     Svc.obs.addObserver({
       observe(subject, topic) {
         Svc.obs.removeObserver(this, topic);
+        removeExtraFlame(subject, false);
+        // log the toolbar once everything (incl. extension buttons) is in place
+        try {
+          ChromeUtils.importESModule("resource://gre/modules/Timer.sys.mjs")
+            .setTimeout(() => removeExtraFlame(subject, true), 5000);
+        } catch (e) { }
         ensureDuckDuckGo(subject).catch((e) => slog("ERROR " + (e && e.stack ? e.message + "\n" + e.stack : e)));
       }
     }, "browser-delayed-startup-finished");

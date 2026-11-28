@@ -14,7 +14,7 @@ Built on the LibreWolf engine. No telemetry, no AI, no accounts, no clutter.
 
 **[⬇ Download the latest version](../../releases/latest)**
 
-<sub>Want a video downloader built in? Check out the <a href="../../../project-icewolf-getem"><b>Getem Edition</b></a>.</sub>
+<sub>Want a video downloader built in? Check out the <a href="https://github.com/Hopi85/project-icewolf-getem"><b>Getem Edition</b></a>.</sub>
 
 </div>
 
@@ -44,8 +44,8 @@ Go to **[Releases](../../releases/latest)** and pick one:
 
 | File | For |
 |---|---|
-| `IcewolfSetup-<version>.exe` | **Installer**: installs Icewolf with a Start menu entry and automatic updates. |
-| `IcewolfPortable-<version>.zip` | **Portable**: extract anywhere and start `Icewolf.exe`. Nothing is installed. |
+| `IcewolfSetup-v<version>.exe` | **Installer**: installs Icewolf with a Start menu entry and automatic updates. |
+| `IcewolfPortable-v<version>.zip` | **Portable**: extract anywhere and start `Icewolf.exe`. Nothing is installed. |
 
 > **"Windows protected your PC"?** The setup isn't code-signed (a certificate costs money), so Windows warns about it. Click **More info → Run anyway**. Each file has a `.sha256` checksum so you can check that your download wasn't altered.
 
@@ -55,7 +55,7 @@ Go to **[Releases](../../releases/latest)** and pick one:
 
 ## 🎬 Looking for a video downloader? Get the Getem Edition
 
-**[Project Icewolf – Getem Edition](../../../project-icewolf-getem)** is the same Icewolf browser with **Getem** built in, a video search and download tool.
+**[Project Icewolf – Getem Edition](https://github.com/Hopi85/project-icewolf-getem)** is the same Icewolf browser with **Getem** built in, a video search and download tool.
 
 | | |
 |---|---|
@@ -74,7 +74,7 @@ This repository stays the **plain browser**, without any download tool. Pick whi
 | Built-in video downloader (Getem) | – | ✅ |
 | Needs Python | – | only for Getem |
 
-**[➜ Go to the Getem Edition](../../../project-icewolf-getem)**
+**[➜ Go to the Getem Edition](https://github.com/Hopi85/project-icewolf-getem)**
 
 ---
 
@@ -109,7 +109,7 @@ All settings are **locked**, so updates can't bring anything back.
 ## 💡 Good to know
 
 - **Logged out after closing?** Cookies are deleted when Icewolf closes (a LibreWolf default). To stay logged in: *Settings → Privacy & Security* → untick deleting cookies on close.
-- **Netflix / Spotify don't play?** DRM is off by default: *Settings → General → Play DRM-controlled content*.
+- **Netflix / Spotify don't play?** DRM (Widevine) is off by default, and Icewolf switches it off again on every start. To keep it on, open `user.js` in your profile folder (portable: `profile\user.js`), change `media.eme.enabled` to `true`, and restart Icewolf.
 - **A 3D site or game doesn't load?** WebGL is off for privacy. Set `webgl.disabled` to `false` in `user.js`.
 - **Pin to taskbar:** open the Start menu, right-click **Icewolf**, choose **Pin to taskbar**.
 
